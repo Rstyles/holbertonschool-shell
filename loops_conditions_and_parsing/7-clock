@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # 7-clock prints every minute and hour up to 12 hours and 59 minutes
 hour=0
-while [ $hour -le 24 ] 
+while [ $hour -le 12 ] 
 do
     echo "Hour: $hour"
     minute=1
