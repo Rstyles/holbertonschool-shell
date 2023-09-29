@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+# 10-process_and_pid_file prints "To infinity and beyond" forever
+kill() {
+    rm /var/run/myscript.pid
+    exit
+}
+echo "$$" > /var/run/myscript.pid
+
+while true; do
+    echo "To infinity and beyond"
+    sleep 2
+
+    trap 'echo "I hate the kill command" && kill' SIGTERM
+    trap 'echo "Y U no love me?!" && kill' SIGINT
+done
