@@ -9,12 +9,12 @@ case "$option" in
         ;;
     "stop")
         pkill -f "/manage_my_process"
-        rm /var/run/my_process.pid
+        sudo rm /var/run/my_process.pid
         echo "manage_my_process stopped"
         ;;
     "restart")
         pkill -f "/manage_my_process"
-        rm /var/run/my_process.pid
+        sudo rm /var/run/my_process.pid
         ./manage_my_process &
         sudo sh -c 'echo "$$" > sudo /var/run/my_process.pid'
         echo "manage_my_process restarted"
