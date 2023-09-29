@@ -10,11 +10,11 @@ case "$option" in
     "stop")
         rm /var/run/my_process.pid
         echo "manage_my_process stopped"
-        kill "$( pgrep -f "manage_my_process" )"
+        kill "$( pgrep -f /manage_my_process )"
         ;;
     "restart")
         rm /var/run/my_process.pid
-        kill "$( pgrep -f "manage_my_process" )"
+        kill "$( pgrep -f /manage_my_process )"
         ./manage_my_process &
         sudo sh -c 'echo "$$" > sudo /var/run/my_process.pid'
         echo "manage_my_process restarted"
